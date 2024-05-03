@@ -14,7 +14,11 @@
         "db/__pycache__": true,
         "src/__pycache__": true,
         "src/operations/__pycache__": true,
-        "src/add_author/__pycache__": true
+        "src/add_author/__pycache__": true,
+        "src/product/__pycache__": true,
+        "src/SIUD/__pycache__": true,
+        "src/baseOperations/__pycache__": true,
+        "migrations/__pycache__": true
     },
     "hide-files.files": [
         "models/__pycache__",
@@ -25,6 +29,10 @@
         "db/__pycache__",
         "src/__pycache__",
         "src/operations/__pycache__",
-        "src/add_author/__pycache__"
+        "src/add_author/__pycache__",
+        "src/product/__pycache__",
+        "src/SIUD/__pycache__",
+        "src/baseOperations/__pycache__",
+        "migrations/__pycache__"
     ]
 }
