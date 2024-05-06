@@ -1,5 +1,8 @@
-from fastapi import APIRouter
+from typing import Annotated
+from fastapi import APIRouter, Depends
 from src.baseOperations.repository import BaseOperation
+from src.baseOperations.schemas import AddUser
+
 router_get_user = APIRouter(
     prefix='/router_get_user',
     tags=['Get_user']
@@ -12,14 +15,13 @@ router_add_user = APIRouter(
 
 @router_get_user.get('/')
 async def get_users():
-    users = await BaseOperation.findAllUsers()
-    return {'status':200, "data": users, 'details':None}
+    result = await BaseOperation.findAllUsers()
+    return {'status':200, "data": result, 'details':None}
 
 
 @router_add_user.post('/')
-async def add_user():
-    # values = new_operation.model_dump()
-    # stmt = insert(user).values(values)
-    # await session.execute(stmt)
-    # await session.commit()
-    return {'status':200, 'data': 'Successfully add_user', 'description':None}
+async def add_user(
+    data: Annotated[AddUser, Depends()]
+):
+    result = await BaseOperation.addUser(data)
+    return {'status':200, 'data': result, 'description':None}
